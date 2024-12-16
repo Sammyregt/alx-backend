@@ -55,8 +55,10 @@ class FIFOCache(BaseCaching):
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS \
                     and key not in self.cache_data.keys():
                 first_key = next(iter(self.cache_data.keys()))
-                del self.cache_data[first_data]
+                del self.cache_data[first_key]
                 print("Discard {}".format(first_key))
+
+            self.cache_data[key] = item
 
     def get(self, key):
         """return the value in self.cache_data linked to key
