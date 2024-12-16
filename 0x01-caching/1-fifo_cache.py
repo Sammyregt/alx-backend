@@ -7,7 +7,7 @@ You must use self.cache_data - dictionary from
 the parent class BaseCaching
 You can overload def __init__(self): but don’t
 forget to call the parent init: super().__init__()
-def put(self, key, item):
+def put(self, key, item)
 Must assign to the dictionary self.cache_data
 the item value for the key key.
 If key or item is None, this method should not
@@ -52,8 +52,7 @@ class FIFOCache(BaseCaching):
         if key is None or item is None:
             pass
         else:
-            if len(self.cache_data) >= BaseCaching.MAX_ITEMS \
-                    and key not in self.cache_data.keys():
+            if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 first_key = next(iter(self.cache_data.keys()))
                 del self.cache_data[first_key]
                 print("Discard {}".format(first_key))
